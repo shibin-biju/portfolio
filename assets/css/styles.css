@@ -505,6 +505,11 @@ img {
   width: 80%;
 }
 
+.skills__ms{
+  width: 75%;
+}
+
+
 .skills__close .skills__list{
   height: 0;
   overflow: hidden;
@@ -518,8 +523,6 @@ img {
 .skills__open .skills__arrow{
   transform: rotate(-180deg);
 }
-
-
 
 
 /*==================== QUALIFICATION ====================*/
@@ -594,11 +597,6 @@ img {
   color: var(--first-color);
 }
 
-/*==================== SERVICES ====================*/
-
-
-/* Active Modal */
-
 
 /*==================== PORTFOLIO ====================*/
 .portfolio__container{
@@ -668,12 +666,6 @@ img {
 .swiper-pagination-bullet{
   outline: none;
 }
-
-/*==================== PROJECT IN MIND ====================*/
-
-
-/*==================== TESTIMONIAL ====================*/
-
 
 /*==================== CONTACT ME ====================*/
 .contact__container{
@@ -944,12 +936,7 @@ img {
 .home__blob{
   width: 270px;
 }
-/*.home__scroll{
-  display: block;
-}
-.home__scroll-button{
-  margin-left: 3rem;
-}*/
+
 .about__container{
   column-gap: 5rem;
 }
