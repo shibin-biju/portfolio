@@ -152,6 +152,7 @@ themeButton.addEventListener('click', () => {
 
 
 
+function getMessage(){
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyjFKfRgYJBYZGD1Esl1v92i_tyW-Z4K6x1X6HCuiuxg81aORLspgzU1vS0o0UqQJFy/exec'
 const form = document.forms['contact-me']
 
@@ -164,3 +165,4 @@ form.addEventListener('submit', e => {
     })
     .catch(error => console.error('Error!', error.message))
 })
+}
