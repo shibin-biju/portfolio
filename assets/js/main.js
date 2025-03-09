@@ -68,8 +68,6 @@ tabs.forEach(tab =>{
     })
 })
 
-/*==================== SERVICES MODAL ====================*/
-
 
 /*==================== PORTFOLIO SWIPER  ====================*/
 var swiper = new Swiper('.portfolio__container', {
@@ -84,8 +82,6 @@ var swiper = new Swiper('.portfolio__container', {
       clickable: true,
     },
 });
-
-/*==================== TESTIMONIAL ====================*/
 
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
@@ -152,4 +148,19 @@ themeButton.addEventListener('click', () => {
     // We save the theme and the current icon that the user chose
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
+})
+
+
+
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyjFKfRgYJBYZGD1Esl1v92i_tyW-Z4K6x1X6HCuiuxg81aORLspgzU1vS0o0UqQJFy/exec'
+const form = document.forms['contact-me']
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response =>{ 
+        form.reset()
+        alert('Message Send!')
+    })
+    .catch(error => console.error('Error!', error.message))
 })
