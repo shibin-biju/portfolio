@@ -151,18 +151,37 @@ themeButton.addEventListener('click', () => {
 })
 
 
-
 function getMessage(){
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyjFKfRgYJBYZGD1Esl1v92i_tyW-Z4K6x1X6HCuiuxg81aORLspgzU1vS0o0UqQJFy/exec'
-const form = document.forms['contact-me']
+    const BOT_TOKEN = "7294030355:AAG1KYf0RKtfaoq4iENzHZh3ZXNDrW7eGEY";
+    const CHAT_ID = "1130642998";
+    const TELEGRAM_URL = `https://api.telegram.org/bot7294030355:AAG1KYf0RKtfaoq4iENzHZh3ZXNDrW7eGEY/sendMessage`;
 
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    .then(response =>{ 
-        form.reset()
-        alert('Message Send!')
-    })
-    .catch(error => console.error('Error!', error.message))
-})
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // prevent default form submit
+
+      const formData = new FormData(this);
+      let message = `📩 *New Form Submission:*\n`;
+      formData.forEach((value, key) => {
+        message += `*${key}*: ${value}\n`;
+      });
+
+      fetch(TELEGRAM_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: message,
+          parse_mode: "Markdown"
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert("✅ Message sent to Telegram!");
+        this.reset();
+      })
+      .catch(err => {
+        alert("❌ Error sending message.");
+        console.error(err);
+      });
+    });
 }
