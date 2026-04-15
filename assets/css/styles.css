@@ -72,12 +72,14 @@
 /*========== Variables Dark theme ==========*/
 body.dark-theme{
   /* HSL color mode */
+  --first-color: hsl(250, 75%, 65%);
+  --first-color-alt: hsl(250, 80%, 75%);
   --first-color-second: hsl(var(--hue-color), 30%, 8%);
   --title-color: hsl(var(--hue-color), 8%, 95%);
   --text-color: hsl(var(--hue-color), 8%, 75%);
   --input-color: hsl(var(--hue-color), 29%, 16%);
-  --body-color: hsl(var(--hue-color), 28%, 12%);
-  --container-color: hsl(var(--hue-color),29%, 16%);
+  --body-color: hsl(var(--hue-color), 28%, 10%);
+  --container-color: hsl(var(--hue-color), 29%, 16%);
 }
 
 /*========== Button Dark/Light ==========*/
@@ -354,10 +356,13 @@ img {
   padding: 1rem;
   border-radius: .5rem;
   font-weight: var(--font-medium);
+  transition: all .3s ease;
 }
 
 .button:hover{
   background-color: var(--first-color-alt);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px hsla(var(--hue-color), 69%, 61%, 0.4);
 }
 
 .button__icon{
@@ -420,12 +425,22 @@ img {
   align-items: center;
   margin-bottom: var(--mb-2-5);
   cursor: pointer;
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: var(--container-color);
+  box-shadow: 0 4px 10px rgba(0,0,0,.05);
+  transition: .3s;
+}
+
+.skills__header:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,.15);
+  transform: translateY(-2px);
 }
 
 .skills__icon,
 .skills__arrow{
   font-size: 2rem;
-  color: var(--mb-0-75);
+  color: var(--first-color);
 }
 
 .skills__icon{
@@ -605,6 +620,15 @@ img {
 
 .portfolio__content{
   padding: 1.5rem 1.5rem;
+  background-color: var(--container-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  transition: .3s;
+}
+
+.portfolio__content:hover {
+  box-shadow: 0 8px 24px hsla(var(--hue-color), 69%, 61%, 0.15);
+  transform: translateY(-5px);
 }
 
 .portfolio__img{
@@ -697,6 +721,13 @@ img {
   background-color: var(--input-color);
   border-radius: .5rem;
   padding: .75rem 1rem .25rem;
+  border: 1px solid transparent;
+  transition: .3s;
+}
+
+.contact__content:hover {
+  border-color: var(--first-color);
+  box-shadow: 0 4px 12px rgba(0,0,0,.1);
 }
 
 .contact__label{
