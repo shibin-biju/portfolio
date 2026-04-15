@@ -138,6 +138,10 @@ if (selectedTheme) {
   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
   document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
   themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
+} else {
+  // Set default icon for dark theme
+  themeButton.classList.add(iconTheme)
+  themeButton.classList.remove('uil-moon')
 }
 
 // Activate / deactivate the theme manually with the button
@@ -151,17 +155,20 @@ themeButton.addEventListener('click', () => {
 })
 
 
-function getMessage(){
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyjFKfRgYJBYZGD1Esl1v92i_tyW-Z4K6x1X6HCuiuxg81aORLspgzU1vS0o0UqQJFy/exec'
-const form = document.forms['contact-me']
-
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    .then(response =>{ 
-        form.reset()
-        alert('Message Send!')
-    })
-    .catch(error => console.error('Error!', error.message))
+/*==================== SCROLL REVEAL ANIMATION ====================*/
+const sr = ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 2500,
+    delay: 400,
+    // reset: true /* Animations repeat */
 })
-}
+
+sr.reveal(`.home__data, .home__social, .about__img, .contact__information`)
+sr.reveal(`.home__img, .about__data`, {delay: 500})
+sr.reveal(`.skills__content:nth-child(1)`, {origin: 'left'})
+sr.reveal(`.skills__content:nth-child(2)`, {origin: 'right'})
+sr.reveal(`.skills__content:nth-child(3)`, {origin: 'left'})
+sr.reveal(`.qualification__tabs, .portfolio__container`, {interval: 100})
+sr.reveal(`.contact__form`, {origin: 'right'})
+
